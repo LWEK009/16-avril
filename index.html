@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تحدي يوم العلم | رحلة في تاريخ الجزائر</title>
+    <meta name="description" content="تجربة تفاعلية متميزة للاحتفال بيوم العلم في الجزائر. تعرف على حياة ابن باديس وتاريخ النهضة الجزائرية.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Amiri:wght@400;700&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="noise"></div>
+    <div class="gradient-bg">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <main id="app">
+        <!-- Brand Header -->
+        <header class="brand-header">
+            <img src="innovatech_logo.png" alt="Innovatech Logo" class="club-logo">
+            <span class="club-name">Innovatech Club</span>
+        </header>
+
+        <!-- Start Screen -->
+        <section id="start-screen" class="active">
+            <div class="hero-content">
+                <span class="badge">16 أفريل - يوم العلم</span>
+                <h1>احتفل <span class="highlight">بالعلم</span> والمعرفة</h1>
+                <p>اختبر معلوماتك واكتشف الأعلام الذين صنعوا مجد الجزائر الفكري. رحلة مشوقة عبر التواريخ، الأحداث والشخصيات العظيمة.</p>
+                <div class="start-actions">
+                    <button id="start-btn" class="btn-primary">
+                        <span>ابدأ الرحلة</span>
+                        <svg style="transform: rotate(180deg);" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </button>
+                </div>
+                <footer class="made-by">
+                    تم التطوير بواسطة نـادي <span class="club-accent">Innovatech</span>
+                </footer>
+            </div>
+            <div class="hero-visual">
+                <div class="book-container">
+                    <img src="hero.png" alt="العلم نور" class="floating-image">
+                </div>
+            </div>
+        </section>
+
+        <!-- Quiz Screen -->
+        <section id="quiz-screen">
+            <div class="quiz-header">
+                <div class="progress-container">
+                    <div class="progress-bar" id="progress-bar"></div>
+                </div>
+                <div class="stats">
+                    <span id="question-number">السؤال 1/10</span>
+                    <span id="timer">00:30</span>
+                </div>
+            </div>
+
+            <div class="card quiz-card">
+                <div class="hint-container" id="hint-box">
+                    <div class="hint-label">تلميح</div>
+                    <p id="hint-text">وُلِدت في قسنطينة وأسست جمعية العلماء المسلمين الجزائريين.</p>
+                </div>
+                
+                <h2 id="question-text">من هذه الشخصية العظيمة؟</h2>
+
+                <div class="options-grid" id="options-container">
+                    <!-- Options injected by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Result Screen -->
+        <section id="result-screen">
+            <div class="result-card card">
+                <div class="trophy-icon">🏆</div>
+                <h2>إنجاز رائع!</h2>
+                <div class="score-display">
+                    <span id="final-score">0</span>
+                    <span class="total-pts">/ 10</span>
+                </div>
+                <p id="result-message">لديك معرفة عميقة بتاريخ الجزائر المجيد.</p>
+                <div class="result-actions">
+                    <button onclick="location.reload()" class="btn-secondary">إعادة المحاولة</button>
+                    <button class="btn-primary">مشاركة النتيجة</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="questions.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
