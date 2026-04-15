@@ -36,15 +36,22 @@ document.addEventListener('DOMContentLoaded', () => {
         hintText.innerText = question.hint;
         qNumber.innerText = `السؤال ${currentQuestionIndex + 1}/${questions.length}`;
         
-        // Update progress bar
         const progress = ((currentQuestionIndex) / questions.length) * 100;
         progressBar.style.width = `${progress}%`;
 
-        question.options.forEach((option, index) => {
+        // Shuffle options and retain their original index for validation
+        const shuffled = question.options.map((opt, i) => ({ text: opt, index: i }));
+        for (let i = shuffled.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+        }
+
+        shuffled.forEach(opt => {
             const button = document.createElement('button');
-            button.innerText = option;
+            button.innerText = opt.text;
             button.classList.add('option-btn');
-            button.addEventListener('click', () => selectOption(index, button));
+            button.dataset.index = opt.index; // Store original index in data attribute
+            button.addEventListener('click', () => selectOption(opt.index, button));
             optionsContainer.appendChild(button);
         });
 
@@ -83,7 +90,12 @@ document.addEventListener('DOMContentLoaded', () => {
             score++;
         } else {
             button.classList.add('wrong');
-            buttons[correctIndex].classList.add('correct');
+            // Find the correct button accurately by original index
+            buttons.forEach(btn => {
+                if (parseInt(btn.dataset.index) === correctIndex) {
+                    btn.classList.add('correct');
+                }
+            });
         }
 
         setTimeout(() => {
